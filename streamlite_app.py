@@ -38,12 +38,6 @@ try:
 except URLError as e:
     Streamlit.error()
   
-my_cur = my_cnx.cursor()
-my_cur.execute("select * from fruit_load_list")
-my_data_rows = my_cur.fetchall()
-streamlit.header("The fruit load contains:")
-streamlit.dataframe(my_data_rows)
-
 def insert_row_snowflake(new_fruit):
         with my_cnx.cursor() as my_cur:
                 my_cur.execute ("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
